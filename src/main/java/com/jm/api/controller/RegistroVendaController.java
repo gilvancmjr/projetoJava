@@ -23,6 +23,13 @@ public class RegistroVendaController {
 	@Autowired
 	private RegistroVendaAssembler registroVendaAssembler;
 	
+//	@GetMapping
+//	public List<RegistroVendaDto> listar(@RequestBody List<RegistroVendaForm> registroVendaForms) {
+//	System.out.println("registroVendaForms"+registroVendaForms);
+//		//System.out.println("teste "+ data);
+//		return registroVendaAssembler.toCollectionModel(registroVendaService.listar(registroVendaForms));
+//	}
+	
 	@PostMapping
 	public List<RegistroVendaDto> listar(@RequestBody List<RegistroVendaForm> registroVendaForms) {
 	System.out.println("registroVendaForms"+registroVendaForms);
