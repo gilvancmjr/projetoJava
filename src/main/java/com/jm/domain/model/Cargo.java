@@ -23,7 +23,8 @@ public class Cargo {
 	
 	private BigDecimal salario;
 
-	private BigDecimal aumento_anual;
+	private BigDecimal aumentoAnual;
 
-	private Integer beneficio;
+	private Float beneficio;
+	
 }

@@ -1,15 +1,11 @@
 package com.jm.domain.model;
 
-import java.util.List;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -28,12 +24,16 @@ public class Funcionario {
 	@Column(nullable = false)
 	private String dataContratacao;
 
-	@ManyToMany
-	@JoinTable(name = "funcionario_cargo", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "cargo_id"))
-	private List<Cargo> cargo;
+//	@ManyToMany
+//	@JoinTable(name = "funcionario_cargo", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "cargo_id"))
+//	private List<Cargo> cargo;
+	
+	@ManyToOne
+	//@JoinTable(name = "funcionario_cargo", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "cargo_id"))
+	private Cargo cargo;
 
-	@ManyToMany
-	@JoinTable(name = "funcionario_registro_venda", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "registro_id"))
-	private List<RegistroVenda> venda;
+//	@ManyToMany
+//	@JoinTable(name = "funcionario_registro_venda", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "registro_id"))
+//	private RegistroVenda venda;
 
 }
