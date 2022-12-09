@@ -16,20 +16,24 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @Entity
-public class Funcionarios {
-	
+public class Funcionario {
+
 	@EqualsAndHashCode.Include
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
 	private String nome;
-	
-	@ManyToMany
-	@JoinTable(name = "funcionarios_cargos", joinColumns = @JoinColumn(name = "funcionarios_id"), inverseJoinColumns = @JoinColumn(name = "cargos_id"))
-	private List<Cargos> cargo;
-	
+
 	@Column(nullable = false)
-	private String dataContratacao;	
+	private String dataContratacao;
+
+	@ManyToMany
+	@JoinTable(name = "funcionario_cargo", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "cargo_id"))
+	private List<Cargo> cargo;
+
+	@ManyToMany
+	@JoinTable(name = "funcionario_registro_venda", joinColumns = @JoinColumn(name = "funcionario_id"), inverseJoinColumns = @JoinColumn(name = "registro_id"))
+	private List<RegistroVenda> venda;
 
 }
